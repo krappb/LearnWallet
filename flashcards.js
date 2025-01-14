@@ -2,6 +2,7 @@
 const flashcards = [
     { front: "What is 2+2?", back: "4" },
     { front: "What is 3+5?", back: "8" },
+    { front: "What is the capital of France?", back: "Paris" }
 ];
 
 let currentFlashcard = 0;
@@ -18,9 +19,13 @@ function showFlashcard() {
     `;
 }
 
+// Switch to the next flashcard
 document.getElementById('nextFlashcard').addEventListener('click', () => {
     currentFlashcard = (currentFlashcard + 1) % flashcards.length;
     showFlashcard();
 });
 
-showFlashcard();
+// Initialize the first flashcard
+document.addEventListener('DOMContentLoaded', () => {
+    showFlashcard();
+});
