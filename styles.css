@@ -1,3 +1,4 @@
+/* General Styling */
 body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
@@ -7,85 +8,126 @@ body {
     overflow-x: hidden;
 }
 
-.sidebar {
-    width: 200px;
-    height: 100%;
-    background-color: #4CAF50;
-    color: white;
-    position: fixed;
-    left: -200px;
-    transition: left 0.3s ease;
-    padding-top: 20px;
-    z-index: 1;
-}
-
-.sidebar nav ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-.sidebar nav ul li {
-    padding: 10px 15px;
-}
-
-.sidebar nav ul li a {
-    color: white;
-    text-decoration: none;
-}
-
-#menuToggle {
-    background: none;
-    border: none;
-    color: white;
-    font-size: 24px;
-    cursor: pointer;
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    z-index: 2;
-}
-
 header {
     background-color: #4CAF50;
     color: white;
-    padding: 10px 0;
+    padding: 20px;
     text-align: center;
 }
 
-main {
-    padding: 20px;
+footer {
+    text-align: center;
+    margin-top: 20px;
 }
 
-h2 {
-    border-bottom: 2px solid #4CAF50;
-    padding-bottom: 10px;
+nav ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+}
+
+nav ul li {
+    margin: 10px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #4CAF50;
+    font-weight: bold;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+/* Flashcard & Quiz Styling */
+button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    margin: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+button:hover {
+    background-color: #45a049;
 }
 
 #flashcard-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 20px 0;
+    margin-top: 20px;
 }
 
-form {
-    margin: 20px 0;
+.flashcard {
+    width: 300px;
+    height: 150px;
+    perspective: 1000px;
+    cursor: pointer;
+    transition: transform 0.5s;
+    position: relative;
 }
 
-input[type="text"], input[type="password"] {
-    margin: 10px;
-    padding: 10px;
+.flashcard > div {
+    position: absolute;
     width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 10px;
 }
 
-button {
+.front {
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5em;
+}
+
+.back {
+    background: #4CAF50;
+    color: white;
+    transform: rotateY(180deg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5em;
+}
+
+.flipped .front {
+    transform: rotateY(180deg);
+}
+
+.flipped .back {
+    transform: rotateY(0);
+}
+
+/* Quiz Specific */
+#quiz-container {
+    max-width: 500px;
+    margin: auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+#answers button {
+    margin: 5px;
+}
+
+/* Highlighting correct and incorrect answers */
+.correct {
     background-color: #4CAF50;
     color: white;
-    padding: 10px;
-    border: none;
-    cursor: pointer;
 }
 
-button:hover {
-    background-color: #45a049;
+.incorrect {
+    background-color: #f44336;
+    color: white;
 }
